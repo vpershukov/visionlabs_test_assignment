@@ -1,10 +1,11 @@
-### Test assignment for VisionLabs
+### Тестовое задание VisionLabs
 
+Зависимости: Flask (чтобы установить Flask, запустите команду: ```sudo pip3 install Flask```)
 
-1. Install Flask first: ```sudo pip3 install Flask```;
+Список эндпоинтов: ```/```, ```/user/<username>```, ```/post/<int: post id>```.
 
-2. Then run the program: ```python3 test_mock.py```;
+#### Задание: напишите автотесты для эндпоинтов, перечисленных выше.
 
-3. Endpoint urls to test: ```/```, ```/user/<username>```, ```/post/<int: post id>```.
-
-#### Assignment: build tests on python to check those endpoint urls.
+Чтобы запустить тесты, выполните следующие действия:
+1. Запустите программу: ```python3 test_mock.py```;
+2. Запустите тесты ```py.test``` (или ```py.test -v``` для большей наглядности).
