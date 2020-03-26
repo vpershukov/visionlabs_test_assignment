@@ -1,12 +1,7 @@
-1.install
-sudo pip3 install Flask
+# Install Flask first: sudo pip3 install Flask
 
-2.run
-python3 test_mock.py
+# Then run program: python3 test_mock.py
 
-3.urls
-'/'
-'/user/<username>'
-'/post/<int: post id>'
+# Endpoint urls: '/', '/user/<username>', '/post/<int: post id>'
 
-4.write tests on python to check these urls.
+# Assignment: write tests on python to check those endpoint urls.
