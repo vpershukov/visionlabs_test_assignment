@@ -1,6 +1,6 @@
 ### Тестовое задание VisionLabs
 
-Зависимости: Flask (чтобы установить Flask, запустите команду: ```sudo pip3 install Flask```)
+Зависимости: Flask (чтобы установить Flask, запустите команду: ```sudo pip3 install Flask```).
 
 Список эндпоинтов: ```/```, ```/user/<username>```, ```/post/<int: post id>```.
 
