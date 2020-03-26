@@ -72,14 +72,14 @@ def test_post_method_without_post_id():
     response = requests.get(url)
     assert response.status_code == 404, "Test failed"
 
-def test_user_method_with_invalid_post_id():
+def test_post_method_with_invalid_post_id():
     """Test for the third method with invalid post_id"""
     test_post_id = random.choice(post_id)
     url = "http://0.0.0.0:6000/post/{}".format(test_post_id)
     response = requests.get(url)
     assert response.status_code == 404, "Test failed"
 
-def test_user_method_as_post():
+def test_post_method_as_post():
     """Test for the third method with invalid http method"""
     url = "http://0.0.0.0:6000/post/1"
     response = requests.post(url)
