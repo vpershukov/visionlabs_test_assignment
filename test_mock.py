@@ -8,6 +8,7 @@ app = Flask(__name__)
 def index():
     return jsonify({"key": "value"})
 
+
 @app.route('/user/<username>')
 def show_user_profile(username):
     # show the user profile for that user
@@ -25,4 +26,3 @@ if __name__ == '__main__':
     parser.add_argument('--port', dest='port', action='store', type=int, help='using port for mock', default=6000)
     args = parser.parse_args()
     app.run(host='0.0.0.0', port=args.port, debug=True, threaded=True)
-

@@ -1,7 +1,10 @@
-### Install Flask first: sudo pip3 install Flask
+### Test assignment for VisionLabs
 
-### Then run program: python3 test_mock.py
 
-### Endpoint urls: '/', '/user/<username>', '/post/<int: post id>'
+1. Install Flask first: ```sudo pip3 install Flask```;
 
-### Assignment: write tests on python to check those endpoint urls.
+2. Then run the program: ```python3 test_mock.py```;
+
+3. Endpoint urls to test: ```/```, ```/user/<username>```, ```/post/<int: post id>```.
+
+#### Assignment: build tests on python to check those endpoint urls.
