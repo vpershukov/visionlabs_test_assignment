@@ -31,18 +31,25 @@ def test_user_method():
     assert response.status_code == 200, "Test failed"
     assert response.text == '{\n  "User": "Jake"\n}\n', "Test failed. We got: {}".format(response.text)
 
-def test_user_method_without_username():
-    """Test for the second method without username"""
-    url = "http://0.0.0.0:6000/user/"
-    response = requests.get(url)
-    assert response.status_code == 404, "Test failed: there is no username"
-
 def test_user_method_with_random_string_as_username():
     """Test for the second method with random string as username"""
     username = random.choice(username_data)
     url = "http://0.0.0.0:6000/user/{}".format(username)
     response = requests.get(url)
     assert response.status_code == 200, "Test failed. We sent: {}".format(username)
+
+def test_user_method_with_too_long_username():
+    """Test for the second method with too long username"""
+    username = "username"*1000
+    url = "http://0.0.0.0:6000/user/{}".format(username)
+    response = requests.get(url)
+    assert response.status_code == 200, "Test failed: too long username"
+
+def test_user_method_without_username():
+    """Test for the second method without username"""
+    url = "http://0.0.0.0:6000/user/"
+    response = requests.get(url)
+    assert response.status_code == 404, "Test failed: there is no username"
 
 def test_user_method_as_post():
     """Test for the second method with invalid http method"""
