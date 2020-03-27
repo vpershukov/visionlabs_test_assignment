@@ -5,7 +5,7 @@ import random
 
 # Test data
 username_data = ["username", "123", " ", "{}}(", ["username"], {"username": "username"}]
-post_id_data = ["post_id", "{}}(", ["post_id"], {"post_id": "post_id"}]
+inv_post_id_data = [-1, 1.10, "post_id", "|]’~< !--@/*$", ["post_id"], {"post_id": "post_id"}]
 
 
 # Tests for the first method: GET /
@@ -61,10 +61,17 @@ def test_user_method_as_post():
 # Tests for the third method: GET /post/<int:post_id>
 def test_post_method():
     """Test for the third method with valid data"""
-    url = "http://0.0.0.0:6000/post/1"
+    url = "http://0.0.0.0:6000/post/15"
     response = requests.get(url)
     assert response.status_code == 200, "Test failed"
-    assert response.text == '{\n  "post": 1\n}\n', "Test failed. We got: {}".format(response.text)
+    assert response.text == '{\n  "post": 15\n}\n', "Test failed. We got: {}".format(response.text)
+
+def test_post_method_and_post_id_as_zero():
+    """Test for the third method with valid data and post_id as 0"""
+    url = "http://0.0.0.0:6000/post/0"
+    response = requests.get(url)
+    assert response.status_code == 200, "Test failed"
+    assert response.text == '{\n  "post": 0\n}\n', "Test failed. We got: {}".format(response.text)
 
 def test_post_method_with_too_long_post_id():
     """Test for the third method with too long post_id"""
@@ -81,7 +88,7 @@ def test_post_method_without_post_id():
 
 def test_post_method_with_invalid_post_id():
     """Test for the third method with invalid post_id"""
-    post_id = random.choice(post_id_data)
+    post_id = random.choice(inv_post_id_data)
     url = "http://0.0.0.0:6000/post/{}".format(post_id)
     response = requests.get(url)
     assert response.status_code == 404, "Test failed: invalid post_id. We sent: {}".format(post_id)
